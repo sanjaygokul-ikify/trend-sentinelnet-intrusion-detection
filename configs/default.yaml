@@ -1,0 +1,19 @@
+sensor:
+  listen: 0.0.0.0:5000
+  detection: 
+    threshold: 0.92
+    max_queue: 1000
+  privacy: 
+    redact: true
+    anonymize_ips: true
+analysis:
+  window: 300
+  models: 
+    - type: lstm
+      epochs: 25
+    - type: isolation_forest
+      depth: 10
+
+repository:
+  sync_interval: 300
+  max_patterns: 100000
