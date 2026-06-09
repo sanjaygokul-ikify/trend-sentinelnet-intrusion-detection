@@ -1,0 +1,13 @@
+[build-system]
+requires = ['poetry-core', 'pdoc3']
+build-backend = 'poetry.core.masonry.api'
+
+[tool.poetry]
+name = "sentinelnet"
+version = "0.1.0"
+description = "Distributed intrusion detection system"
+license = "Apache-2.0"
+authors = ["YourName <email@example.com>"]
+packages = [{include = "sentinelnet"}]
+
+tool.pdoc.show-members = true
