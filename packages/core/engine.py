@@ -14,6 +14,8 @@ class AnomalyDetector:
         self.model = IsolationForest(contamination=contamination)
 
     def train(self, traffic_data: List[TrafficData]) -> None:
+        if not traffic_data:
+            raise AnomalyDetectionError('Cannot train on empty data')
         X = np.array([td.features for td in traffic_data])
         y = np.array([td.label for td in traffic_data])
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
